@@ -1,22 +1,5 @@
-pipeline { 
-    agent {
-        label 'ws'
-    }
-    stages {
-        stage('Lint Checks') {
-            steps {
-                sh "echo Performing Lint Checks"
-                // sh "pip install pylint"
-                sh "echo Style Checks Completed"
-            }
-        }
+@Library('shared-library') _
 
-        stage('Static Code Analysis') {
-            steps {
-                sh "echo Static Checks ...."
-            }
-        }
-
-    }
-}
-
+env.COMPONENT="payment"
+// call is the function that will be called by default. So, we are delcaring the entire pipeline in the vars/nodejs.groovy
+python()
